@@ -1,0 +1,253 @@
+html {
+    background: #012561;
+    overflow: hidden;
+    font-family: 'Ovo', sans-serif;
+}
+
+/* montserrat-regular - latin */
+@font-face {
+  font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+  font-family: 'Montserrat';
+  font-style: normal;
+  font-weight: 400;
+  src: url('../fonts/montserrat-v31-latin-regular.woff2') format('woff2'); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+}
+/* montserrat-800 - latin */
+@font-face {
+  font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+  font-family: 'Montserrat';
+  font-style: normal;
+  font-weight: 800;
+  src: url('../fonts/montserrat-v31-latin-800.woff2') format('woff2'); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+}
+
+/* ovo-regular - latin */
+@font-face {
+  font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+  font-family: 'Ovo';
+  font-style: normal;
+  font-weight: 400;
+  src: url('../fonts/ovo-v18-latin-regular.woff2') format('woff2'); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+}
+
+body {
+    padding: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+   background: radial-gradient(circle at center, #0065b5, #012561);
+   margin: 0;
+   z-index: -1;
+   font-family: 'Ovo', sans-serif;
+}
+
+.container_clouds {
+    height: 100%;
+    opacity: 0.3;
+    position: absolute;
+    overflow: hidden;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 0;
+}
+
+.clouds1 {
+    background-image: url("/images/clouds_1.png");
+    animation: clouds1_loop1 300s infinite linear;
+}
+
+.clouds2 {
+    background-image: url("/images/clouds_2.png");
+    animation: clouds2_loop2 215s infinite linear;
+}
+
+.clouds3 {
+    background-image: url("/images/clouds_3.png");
+    animation: clouds2_loop2 317s infinite linear;
+}
+
+.clouds1,
+.clouds2,
+.clouds3 {
+    background-repeat: repeat-x;
+    height: 500px;
+    position: absolute;
+    top: 0;
+    right: 0;
+    left: 0;
+}
+
+@keyframes clouds1_loop1 {
+  to {
+    background-position: -1000px 0;
+  }
+}
+@keyframes clouds2_loop2 {
+  to {
+    background-position: -1000px 0;
+  }
+}
+@keyframes clouds3_loop3 {
+  to {
+    background-position: -1579px 0;
+  }
+}
+
+#loading-screen {
+  position: fixed;
+  inset: 0; /* top:0; right:0; bottom:0; left:0; */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 999;
+  font-family: 'Ovo', sans-serif;
+  font-size: 1.5rem;
+  color: #fff;
+  pointer-events: all; /* prevent clicks on content behind */
+}
+
+.machine {
+    visibility: hidden;
+    width: 100%;
+display: flex;
+align-items: center;
+justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  /* Dark gradient background */
+  color: #fff;
+  gap: 1rem;
+  z-index: 3;
+}
+
+.header {
+    position: absolute;
+    top: 0;
+    margin-top: 1rem;
+    font-size: 2rem;
+}
+
+.blue-text {
+  color: #ffffff; /* slightly brighter blue */
+  font-weight: 800;
+}
+
+.green-text {
+  color: #8FD5A6; /* brighter green */
+  font-weight: 800;
+  font-style: italic;
+}
+
+#reel-container {
+    position: relative;
+    overflow: visible;
+  width: 100%;
+  max-width: 300px;
+  height: 50px; /* shows one item */
+  overflow: hidden;
+  border-radius: 15rem;
+  position: relative;
+}
+
+#reel-container::before,
+#reel-container::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  pointer-events: none;
+  background: linear-gradient(
+    to right,
+    rgba(255, 255, 255, 0),
+    rgba(255, 255, 255, 0.8),
+    rgba(255, 255, 255, 0)
+  );
+}
+
+/* Top line */
+#reel-container::before {
+  top: 0;
+}
+
+/* Bottom line */
+#reel-container::after {
+  bottom: 0;
+}
+
+
+#reel {
+  display: flex;
+  flex-direction: column;
+}
+
+.reel-item {
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2rem;
+  font-weight: bold;
+  color: #FFF;
+}
+
+#definition-wrapper {
+  width: 100%;
+  max-width: 300px;
+  min-height: 200px;      /* reserve space so it doesn't move */
+  text-align: left;
+  margin-top: 25px;
+  color: #FFFBF0;
+  font-size: 1rem;
+}
+
+#definition-wrapper strong {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: bold;
+}
+
+#definition {
+  margin-bottom: 20px;
+  text-align: left;
+  max-width: 300px;
+  min-height: 80px;
+  font-family: "Ovo";
+}
+
+
+button {
+    font-family: "Ovo";
+  background: transparent;          /* invisible background */
+  position: relative;
+  padding: 14px 42px;
+  font-size: 1.1rem;
+  font-weight: 800;
+  border: 2px solid #8FD5A6;
+  color: #8FD5A6;
+  border-radius: 999px;              /* pill shape */
+  cursor: pointer;
+  transition: 
+    transform 0.1s ease,
+    background-color 0.15s ease,
+    color 0.15s ease;
+  user-select: none;
+}
+
+/* Hover — subtle fill */
+button:hover {
+  background: rgba(255, 255, 255, 0.08);
+}
+
+/* Pressed — pushed in */
+button:active {
+  transform: scale(0.96);
+  background: rgba(255, 255, 255, 0.15);
+}
+
+
+
+
